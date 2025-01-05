@@ -49,3 +49,39 @@ document.addEventListener("keydown", function(event){
     }
 });
 
+
+function accident() {/* si la voiture rouge touche une autre voiture */
+
+    let jouer = document.querySelector(".blocCar").getBoundingClientRect();
+    let ennemi = document.querySelector(".blocvoiture").getBoundingClientRect();
+
+    return !(jouer.top > ennemi.bottom ||
+        jouer.bottom < ennemi.top ||
+        jouer.right < ennemi.left ||
+        jouer.left > ennemi.right 
+        
+     );
+}
+
+let gameOver= false; /*pas encore perdu*/
+
+document.addEventListener('DOMContentLoaded', (event) => {/*surveiller ce qu'il se passe*/
+
+    setInterval(() => { /*verifie si les voiture se touche et si la partie est déjà perdu*/
+        if (!gameOver && accident()){
+            // alert("Game Over");
+            // document.querySelector(".game").style.display ="none"
+            console.log("ok");
+            gameOver = true;
+        }
+    }, 100);
+});
+
+setInterval(() =>{
+    let positionEnnemi= ["-100px","100px"];
+    let aleatoire = Math.floor(Math.random() * positionEnnemi.length);
+    let ennemiLieu = positionEnnemi[aleatoire];
+
+    document.querySelector(".blocvoiture").style.left = ennemiLieu;
+
+}, 1000);
