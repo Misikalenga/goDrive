@@ -1,0 +1,227 @@
+.centre{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.game{
+    position: fixed;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -10%);
+
+    width: 80%;
+    height: 60%;
+    left: 50%;
+    top: 10%;
+    border: 1px solid black;
+    border-radius: 10px;
+    overflow: hidden; 
+
+}
+
+.map{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 600px;
+    height: 800px;
+    background: rgb(28, 163, 28);
+}
+
+.root{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    height: 120%;
+    background: rgb(99, 99, 99);
+    border: 10px solid white;
+}
+
+.band{
+    width: 15px;
+    height: 50px;
+    background: rgb(255, 255, 255);
+    margin: 30px;
+    animation: band 0.7s linear infinite;
+}
+
+@keyframes band {
+    0%{
+        transform: translateY(0px);
+    }
+    100%{
+        transform: translateY(100px);
+    }
+}
+
+
+/* --------voiture ennemi-------- */
+
+.blocvoiture{
+    position: relative;
+    top: -400px;
+    left: 0px;
+    animation : voiture 3s linear infinite;
+    z-index: 1000;
+}
+
+@keyframes voiture {
+    0%{
+        transform: translateY(0px);
+    }
+    100%{
+        transform: translateY(1000px);
+    }
+}
+
+.formevoiture{
+    position:relative;
+    background: rgb(7, 115, 177);
+    width: 120px;
+    height: 220px;
+    border-bottom-left-radius: 45px;
+    border-bottom-right-radius: 45px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.voiture{
+    position:relative;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    animation: cfast 0.8s linear infinite ;
+}
+
+.rouev1{
+    position: absolute;
+    background: rgb(32, 32, 32);
+    width: 150px;
+    height: 50px;
+    border-radius: 15px;
+    top: 20px;
+}
+
+.rouev2{
+    position: absolute;
+    background: rgb(32, 32, 32);
+    width: 150px;
+    height: 50px;
+    border-radius: 15px;
+    top: 130px;
+}
+
+/* ---------ca rouge---------- */
+
+.blocCar{
+    position: relative;
+
+    top: 150px;
+    left: 0px;
+    animation : cfast 1.2s linear infinite;
+}
+
+.formecar{
+    position:relative;
+    background: rgb(177, 7, 7);
+    width: 120px;
+    height: 220px;
+    border-top-left-radius: 45px;
+    border-top-right-radius: 45px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.rouet{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 150px;
+    height: 70px;
+    top: 30px;
+}
+
+.roue1{
+    background: rgb(32, 32, 32);
+    width: 30px;
+    height: 50px;
+    border-radius: 15px;
+    top: 40px;
+    animation:  ;
+}
+
+.roue2{
+    background: rgb(32, 32, 32);
+    width: 30px;
+    height: 50px;
+    border-radius: 15px;
+    top: 40px;
+    animation:  ;
+}
+
+.roue3{
+    position: absolute;
+    background: rgb(32, 32, 32);
+    width: 150px;
+    height: 50px;
+    border-radius: 15px;
+    top: 150px;
+}
+
+.car{
+    position:relative;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+@keyframes cleft {
+    0%, 100%{
+        transform: rotate(0deg);
+    }
+    20%{
+        transform: rotate(-20deg);
+    }
+    60%{
+        transform: rotate(-15deg);
+    }
+    80%{
+        transform: rotate(5deg);
+    }
+}
+
+@keyframes cright {
+    0%, 100%{
+        transform: rotate(0deg);
+    }
+    20%{
+        transform: rotate(20deg);
+    }
+    60%{
+        transform: rotate(15deg);
+    }
+    80%{
+        transform: rotate(-5deg);
+    }
+}
+
+@keyframes cfast {
+    0%, 100%{
+        transform: translateY(0px);
+    }
+    30%{
+        transform: translateY(-2px);
+    }
+    80%{
+        transform: translateY(2px);
+    }
+}
