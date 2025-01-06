@@ -1,3 +1,6 @@
+
+
+
 function pressLeft() { /*ce qui ce passe quand on appuie sur la fleche gauche*/
     let tgauche = document.querySelector(".car");
     let tgaucheR1 = document.querySelector(".roue1");
@@ -69,19 +72,55 @@ document.addEventListener('DOMContentLoaded', (event) => {/*surveiller ce qu'il 
 
     setInterval(() => { /*verifie si les voiture se touche et si la partie est déjà perdu*/
         if (!gameOver && accident()){
-            // alert("Game Over");
-            // document.querySelector(".game").style.display ="none"
-            console.log("ok");
+            
+            document.querySelector(".game").style.display ="none"
+            document.querySelector(".gameover").style.display ="block"
+            setInterval(() =>{
+                alert("Appuie sur enter pour rejouer");
+                location.reload(); /*recharge la page*/
+            },2000);
             gameOver = true;
         }
     }, 100);
 });
 
-setInterval(() =>{
-    let positionEnnemi= ["-100px","100px"];
-    let aleatoire = Math.floor(Math.random() * positionEnnemi.length);
-    let ennemiLieu = positionEnnemi[aleatoire];
 
-    document.querySelector(".blocvoiture").style.left = ennemiLieu;
 
-}, 1000);
+document.addEventListener('DOMContentLoaded', (event) => {/*positoin possible de ennemi */
+    const ennemiVoiture = document.querySelector(".blocvoiture");
+    const jouer = document.querySelector(".blocCar");
+    let positionEnnemi = [-100, 100];
+    let animEnCours = false;
+
+    function changerPositionEnnemi() {
+        let aleatoire = Math.floor(Math.random() * positionEnnemi.length);
+        let ennemiLieu = positionEnnemi[aleatoire];
+        let eCoulisse = parseInt(getComputedStyle(ennemiVoiture).left, 10);
+
+        let animEnnemi = setInterval(() => { /*detecte quand il changer de position*/
+            let jouerRect = jouer.getBoundingClientRect();
+            let ennemiRect = ennemiVoiture.getBoundingClientRect();
+            
+            if (ennemiRect.bottom <= jouerRect.top - 300) {
+                clearInterval(animEnnemi); /*stop l'annim*/
+                eCoulisse = ennemiLieu; 
+                ennemiVoiture.style.left = eCoulisse + "px";
+                animEnCours = false; 
+            } else {
+                if (eCoulisse > ennemiLieu) {
+                    eCoulisse -= 5;
+                } else if (eCoulisse < ennemiLieu) {
+                    eCoulisse += 5;
+                }
+                ennemiVoiture.style.left = eCoulisse + "px";
+            }
+        }, 10); /*vitesse*/ 
+    }
+
+    setInterval(() => {
+        if (!animEnCours) {
+            animEnCours = true;
+            changerPositionEnnemi();
+        }
+    }, 1000); /* quand sa recommence*/
+});
