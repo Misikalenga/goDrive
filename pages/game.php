@@ -9,6 +9,9 @@
         <script src="../assets/script/car.js"></script>
     </head>
     <body>
+    <div>    
+        <span>score </span><span class="score">0</span>
+    </div>
     <div class="centre">
         <h1 class="gameover"> GAME OVER </h1>
         <div class="game">

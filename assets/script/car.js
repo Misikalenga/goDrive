@@ -124,3 +124,36 @@ document.addEventListener('DOMContentLoaded', (event) => {/*positoin possible de
         }
     }, 1000); /* quand sa recommence*/
 });
+
+document.addEventListener('DOMContentLoaded', (event) => { /*surveille ce qu'il ce passe*/
+
+    let couleurEnnemi = ["rgb(7, 115, 177)", "rgb(7, 177, 64)","rgb(174, 177, 7)","rgb(67, 7, 177)","rgb(177, 7, 30)"];
+    let couleurAleatoire = Math.floor(Math.random() * couleurEnnemi.length);
+    let ennemiCouleur = couleurEnnemi[couleurAleatoire];
+    let ennemi = document.querySelector(".blocvoiture").getBoundingClientRect();
+
+    function couleur() {
+        if (parseInt(ennemi.top) > 900) { /* si on se trouve à la même hauteur qu'une voiture */
+            ennemiCouleur ;
+        }
+    }
+    
+    setInterval(couleur, 100);
+    
+
+    let score= document.querySelector(".score"); 
+    let numScore= 0;
+
+    function scoreUpdate() { /*rajoute des point quand on evite une voiture */
+    
+        let jouer = document.querySelector(".blocCar").getBoundingClientRect();
+        let ennemi = document.querySelector(".blocvoiture").getBoundingClientRect();
+
+        if (parseInt(jouer.top) < parseInt(ennemi.bottom) && parseInt(ennemi.bottom) < (parseInt(jouer.top) + 20)) { /*si on se trouve a la meme hauteur qu'une voiture*/
+            numScore += 1;
+            score.textContent = numScore; /*change le score sur la balise qui affiche le score*/
+
+        }
+    }
+    setInterval(scoreUpdate, 100); /*c'est pour lui dire de recommencer toutes les 0.1 secondes*/
+});

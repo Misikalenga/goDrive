@@ -23,9 +23,19 @@
 
 }
 
+span{
+    font-size: 2em;
+    margin-left: 20px;
+}
+
 a{
     color:rgb(0, 50, 70);
 }
+
+.score{
+    color: blue;
+}
+
 
 .game{
     position: fixed;
@@ -37,7 +47,7 @@ a{
     width: 80%;
     height: 80%;
     left: 50%;
-    top: 10%;
+    top: 20%;
     border: 1px solid black;
     border-radius: 10px;
     overflow: hidden; 
@@ -90,7 +100,7 @@ a{
     position: relative;
     top: -400px;
     left: 0px;
-    animation : voiture 2.5s linear infinite;
+    animation : voiture 3.5s linear infinite;
     z-index: 1000;
 }
 
@@ -100,6 +110,7 @@ a{
     }
     100%{
         transform: translateY(1000px);
+        
     }
 }
 
