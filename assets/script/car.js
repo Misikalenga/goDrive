@@ -128,17 +128,19 @@ document.addEventListener('DOMContentLoaded', (event) => {/*positoin possible de
 document.addEventListener('DOMContentLoaded', (event) => { /*surveille ce qu'il ce passe*/
 
     let couleurEnnemi = ["rgb(7, 115, 177)", "rgb(7, 177, 64)","rgb(174, 177, 7)","rgb(67, 7, 177)","rgb(177, 7, 30)"];
-    let couleurAleatoire = Math.floor(Math.random() * couleurEnnemi.length);
-    let ennemiCouleur = couleurEnnemi[couleurAleatoire];
-    let ennemi = document.querySelector(".blocvoiture").getBoundingClientRect();
-
+    
+    
+    ok = true;
     function couleur() {
-        if (parseInt(ennemi.top) > 900) { /* si on se trouve à la même hauteur qu'une voiture */
-            ennemiCouleur ;
+     if (ok) { /* si la voiture est loin */
+            let couleurAleatoire = Math.floor(Math.random() * couleurEnnemi.length);
+            let ennemiCouleur = couleurEnnemi[couleurAleatoire];
+        document.querySelector(".voiture").style.background = ennemiCouleur ;
         }
     }
-    
+
     setInterval(couleur, 100);
+
     
 
     let score= document.querySelector(".score"); 
