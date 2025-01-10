@@ -1,5 +1,26 @@
 
+/*annimation ennemi tourne à gauche ou a droite*/
 
+function vLeft() { /*ce qui ce passe quand on appuie sur la fleche gauche*/
+    let vtgauche = document.querySelector(".voiture");
+    let vtgaucheR1 = document.querySelector(".rouev1");
+    let vtgaucheR2 = document.querySelector(".rouev2");
+    vtgauche.style.animation = "vleft 1s linear"; /*change l'annimation par defaut*/
+    vtgaucheR1.style.animation = "vleft 1s linear"; /*change l'annimation par defaut des roue*/
+    vtgaucheR2.style.animation = "vleft 1s linear"; /*change l'annimation par defaut des roue*/
+}    
+
+
+function vRight() { /*ce qui ce passe quand on appuie sur la fleche droite*/
+    let vtdroite = document.querySelector(".voiture");
+    let vtdroiteR1 = document.querySelector(".rouev1");
+    let vtdroiteR2 = document.querySelector(".rouev2");
+    vtdroite.style.animation = "vright 1s linear"; 
+    vtdroiteR1.style.animation = "vright 1s linear"; 
+    vtdroiteR2.style.animation = "vright 1s linear"; 
+}
+
+/*annimation et deplacement joueur quand il tourne à gauche ou a droite*/
 
 function pressLeft() { /*ce qui ce passe quand on appuie sur la fleche gauche*/
     let tgauche = document.querySelector(".car");
@@ -22,7 +43,9 @@ function pressLeft() { /*ce qui ce passe quand on appuie sur la fleche gauche*/
     }, 1);/*toute les miliseconde*/
 }
 
-function pressRight() { /*ce qui ce passe quand on appuie sur la fleche droite*/
+/*ce qui ce passe quand on appuie sur la fleche droite*/
+
+function pressRight() { 
     let tdroite = document.querySelector(".car");
     let tdroiteR1 = document.querySelector(".roue1");
     let tdroiteR2 = document.querySelector(".roue2");
@@ -52,8 +75,9 @@ document.addEventListener("keydown", function(event){
     }
 });
 
+/* si la voiture rouge touche une autre voiture */
 
-function accident() {/* si la voiture rouge touche une autre voiture */
+function accident() {
 
     let jouer = document.querySelector(".blocCar").getBoundingClientRect();
     let ennemi = document.querySelector(".blocvoiture").getBoundingClientRect();
@@ -75,16 +99,16 @@ document.addEventListener('DOMContentLoaded', (event) => {/*surveiller ce qu'il 
             
             document.querySelector(".game").style.display ="none"
             document.querySelector(".gameover").style.display ="block"
-            setInterval(() =>{
+            setTimeout(() =>{
                 alert("Appuie sur enter pour rejouer");
                 location.reload(); /*recharge la page*/
-            },2000);
+            },1000);
             gameOver = true;
         }
     }, 100);
 });
 
-
+/* ennemi deplacement */
 
 document.addEventListener('DOMContentLoaded', (event) => {/*positoin possible de ennemi */
     const ennemiVoiture = document.querySelector(".blocvoiture");
@@ -101,7 +125,7 @@ document.addEventListener('DOMContentLoaded', (event) => {/*positoin possible de
             let jouerRect = jouer.getBoundingClientRect();
             let ennemiRect = ennemiVoiture.getBoundingClientRect();
             
-            if (ennemiRect.bottom <= jouerRect.top - 300) {
+            if (ennemiRect.bottom <=  jouerRect.top - 300) {
                 clearInterval(animEnnemi); /*stop l'annim*/
                 eCoulisse = ennemiLieu; 
                 ennemiVoiture.style.left = eCoulisse + "px";
@@ -109,8 +133,10 @@ document.addEventListener('DOMContentLoaded', (event) => {/*positoin possible de
             } else {
                 if (eCoulisse > ennemiLieu) {
                     eCoulisse -= 5;
+                    vLeft();
                 } else if (eCoulisse < ennemiLieu) {
                     eCoulisse += 5;
+                    vRight();
                 }
                 ennemiVoiture.style.left = eCoulisse + "px";
             }
@@ -126,22 +152,26 @@ document.addEventListener('DOMContentLoaded', (event) => {/*positoin possible de
 });
 
 document.addEventListener('DOMContentLoaded', (event) => { /*surveille ce qu'il ce passe*/
-
-    let couleurEnnemi = ["rgb(7, 115, 177)", "rgb(7, 177, 64)","rgb(174, 177, 7)","rgb(67, 7, 177)","rgb(177, 7, 30)"];
+/* changer la couleur*/
+    let couleurEnnemi = ["rgb(7, 115, 177)", "rgb(7, 177, 64)","rgb(174, 177, 7)","rgb(67, 7, 177)","rgb(177, 7, 30)"]; 
     
-    
+   
+ 
     ok = true;
     function couleur() {
-     if (ok) { /* si la voiture est loin */
+     if (couleurEnnemi) { /* si la voiture est loin */
+        let posivoiture = document.querySelector(".blocvoiture").getBoundingClientRect();
+        if (parseInt(posivoiture.bottom) > 1350){
             let couleurAleatoire = Math.floor(Math.random() * couleurEnnemi.length);
             let ennemiCouleur = couleurEnnemi[couleurAleatoire];
-        document.querySelector(".voiture").style.background = ennemiCouleur ;
+            document.querySelector(".formevoiture").style.background = ennemiCouleur ;
         }
+    }
     }
 
     setInterval(couleur, 100);
 
-    
+ /* afficher les score */   
 
     let score= document.querySelector(".score"); 
     let numScore= 0;
