@@ -75,13 +75,13 @@ body {
 /* -- ROAD INFINITE LOOP from top to bottom -- */
 
 @keyframes loop_road {
-    from {
-      background-position-y: 0;
-    }
-    to {
-      background-position-y: 400%;
-    }
+  from {
+    background-position-y: 0;
   }
+  to {
+    background-position-y: 400%;
+  }
+}
 
 /* .band {
   width: 15px;
@@ -121,13 +121,11 @@ body {
 
 .formevoiture {
   position: relative;
-  background: rgba(7, 115, 177, 164);
-  width: 120px;
-  height: 220px;
-  border-bottom-left-radius: 45px;
-  border-bottom-right-radius: 45px;
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
+  background: url("/assets/img/Cars/taxi-car.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 110px;
+  height: 240px;
   animation: cfast 0.8s linear infinite;
 }
 
@@ -175,9 +173,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 150px;
+  width: 120px;
   height: 70px;
-  top: 120px;
+  top: 140px;
 }
 
 .rouev1 {
@@ -199,7 +197,7 @@ body {
 .rouev3 {
   position: absolute;
   background: rgb(32, 32, 32);
-  width: 150px;
+  width: 120px;
   height: 50px;
   border-radius: 15px;
   top: 30px;
@@ -213,17 +211,19 @@ body {
   top: 150px;
   left: 0px;
   animation: cfast 1.2s linear infinite;
+  img {
+    width: 160px;
+    height: 300px;
+  }
 }
 
 .formecar {
   position: relative;
-  background: rgb(177, 7, 7);
+  background: url("/assets/img/Cars/police-car.png");
+  background-size: contain;
+  background-repeat: no-repeat;
   width: 120px;
-  height: 220px;
-  border-top-left-radius: 45px;
-  border-top-right-radius: 45px;
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
+  height: 240px;
 }
 
 .rouet {
@@ -231,7 +231,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 150px;
+  width: 110px;
   height: 70px;
   top: 30px;
 }
@@ -255,7 +255,7 @@ body {
 .roue3 {
   position: absolute;
   background: rgb(32, 32, 32);
-  width: 150px;
+  width: 120px;
   height: 50px;
   border-radius: 15px;
   top: 150px;
