@@ -1,3 +1,8 @@
+let test = 10
+
+function test () {
+    console.log(test)
+}
 
 /*annimation ennemi tourne à gauche ou a droite*/
 
@@ -153,7 +158,7 @@ document.addEventListener('DOMContentLoaded', (event) => {/*positoin possible de
 
 document.addEventListener('DOMContentLoaded', (event) => { /*surveille ce qu'il ce passe*/
 /* changer la couleur*/
-    let couleurEnnemi = ["rgb(7, 115, 177)", "rgb(7, 177, 64)","rgb(174, 177, 7)","rgb(67, 7, 177)","rgb(177, 7, 30)"]; 
+    let couleurEnnemi = ["rgb(2, 2, 2)", "rgb(7, 177, 64)","rgb(174, 177, 7)","rgb(67, 7, 177)","rgb(177, 7, 30)"]; 
     
    
  
@@ -161,7 +166,7 @@ document.addEventListener('DOMContentLoaded', (event) => { /*surveille ce qu'il 
     function couleur() {
      if (couleurEnnemi) { /* si la voiture est loin */
         let posivoiture = document.querySelector(".blocvoiture").getBoundingClientRect();
-        if (parseInt(posivoiture.bottom) > 1350){
+        if (parseInt(posivoiture.bottom) > 1550){
             let couleurAleatoire = Math.floor(Math.random() * couleurEnnemi.length);
             let ennemiCouleur = couleurEnnemi[couleurAleatoire];
             document.querySelector(".formevoiture").style.background = ennemiCouleur ;

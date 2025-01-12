@@ -1,0 +1,95 @@
+.start_page {
+  display: grid;
+  place-content: center;
+  background: url("/assets/img/grid.jpg");
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  animation: loop_background 10s ease-in-out infinite alternate;
+}
+
+/* keyframe for to loop the background position infinitely */
+@keyframes loop_background {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+.startgame_card {
+  position: relative;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  height: 400px;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 15px 15px #052a75;
+
+  .card_data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 4rem;
+
+    .card_avatar {
+      position: relative;
+      top: 0;
+      width: 200px;
+    }
+  }
+}
+
+.card_info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  text-align: left;
+  h1 {
+    text-transform: uppercase;
+    font-size: 2rem;
+    color: #052a75;
+  }
+  p {
+    font-size: 1.2rem;
+    color: #052a75;
+  }
+}
+
+.startgame_btn {
+  position: absolute;
+  right: 32%;
+  bottom: 3rem;
+  cursor: pointer;
+  font-size: large;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #052a75;
+  background-color: #f8f8fd;
+  padding: 0.8em 2.2em;
+  border-radius: 50em;
+  border: 6px solid #052a75;
+  box-shadow: 5px 5px #f89321;
+  transition: 0.3s;
+}
+
+.startgame_btn:hover {
+  color: #f89321;
+  background: #052a75;
+  border: 6px solid #f89321;
+  box-shadow: none;
+}
+
+.startgame_btn:active {
+  position: absolute;
+  right: 32%;
+  bottom: 3rem;
+  border: 6px solid #f89321;
+  box-shadow: 5px 5px #000000;
+}

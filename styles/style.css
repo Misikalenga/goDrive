@@ -1,39 +1,40 @@
-.centre{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.gameover{
-    font-size: 10em;
-    display: none;
+body {
+    font-family: 'Roboto', sans-serif;
 }
 
-.startgame{
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 5em;
-    background: url('../img/retro.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 15%;
-    width: 800px;
-    height: 500px;
-
-}
 
 span{
     font-size: 2em;
     margin-left: 20px;
 }
 
-a{
-    color:rgb(0, 50, 70);
+
+.highestScore {
+
+    position: fixed;
+    top: -5%;
+    right: 45%;
+    font-size: 2rem;
+    font-weight: bold;
+    color: red;
 }
 
 .score{
-    color: blue;
+    position: fixed;
+    bottom: -5%;
+    right: 45%;
+    font-weight: bold;
+    font-size: 3rem;
+    color: red;
+    .score_value {
+        font-size: 4rem;
+    }
 }
 
 
@@ -48,10 +49,14 @@ a{
     height: 80%;
     left: 50%;
     top: 20%;
-    border: 1px solid black;
     border-radius: 10px;
     overflow: hidden; 
 
+}
+
+.gameover {
+  font-size: 10em;
+  display: none;
 }
 
 .map{
@@ -59,9 +64,9 @@ a{
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 120%;
-    height: 160%;
-    background: rgb(28, 163, 28);
+    width: 1400px;
+    height: 900px;
+    border-radius: 500px;
 }
 
 .root{
@@ -71,9 +76,9 @@ a{
     align-items: center;
     justify-content: center;
     width: 30%;
-    height: 120%;
+    height: 100%;
     background: rgb(99, 99, 99);
-    border: 10px solid white;
+    border: 10px solid rgb(73, 73, 73);
 }
 
 .band{
@@ -132,7 +137,6 @@ a{
     display:flex;
     align-items: center;
     justify-content: center;
-    animation: ;
     
 }
 
@@ -182,7 +186,6 @@ a{
     height: 50px;
     border-radius: 15px;
     top: 40px;
-    animation:  ;
 }
 
 .rouev2{
@@ -191,7 +194,6 @@ a{
     height: 50px;
     border-radius: 15px;
     top: 40px;
-    animation:  ;
 }
 
 .rouev3{
@@ -240,7 +242,6 @@ a{
     height: 50px;
     border-radius: 15px;
     top: 40px;
-    animation:  ;
 }
 
 .roue2{
@@ -249,7 +250,6 @@ a{
     height: 50px;
     border-radius: 15px;
     top: 40px;
-    animation:  ;
 }
 
 .roue3{
