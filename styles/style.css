@@ -1,57 +1,48 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
+  background: grey;
 }
 
+/* .game_environment {
+  background: url("/assets/img/background/road.jpg");
+  
+} */
 
-span{
-    font-size: 2em;
-    margin-left: 20px;
-}
-
-
+/* -- SCORE -- */
 .highestScore {
-
-    position: fixed;
-    top: -5%;
-    right: 45%;
-    font-size: 2rem;
-    font-weight: bold;
-    color: red;
+  position: fixed;
+  top: -5%;
+  right: 45%;
+  font-size: 2rem;
+  font-weight: bold;
+  color: red;
 }
 
-.score{
-    position: fixed;
-    bottom: -5%;
-    right: 45%;
-    font-weight: bold;
-    font-size: 3rem;
-    color: red;
-    .score_value {
-        font-size: 4rem;
-    }
+.score {
+  position: fixed;
+  bottom: -5%;
+  right: 45%;
+  font-weight: bold;
+  font-size: 3rem;
+  color: red;
+  .score_value {
+    font-size: 4rem;
+  }
 }
 
-
-.game{
-    position: fixed;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    transform: translate(-50%, -10%);
-
-    width: 80%;
-    height: 80%;
-    left: 50%;
-    top: 20%;
-    border-radius: 10px;
-    overflow: hidden; 
-
+.game {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .gameover {
@@ -59,254 +50,265 @@ span{
   display: none;
 }
 
-.map{
-    position: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 1400px;
-    height: 900px;
-    border-radius: 500px;
+.map {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1400px;
+  height: 900px;
+  border-radius: 500px;
 }
 
-.root{
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 30%;
-    height: 100%;
-    background: rgb(99, 99, 99);
-    border: 10px solid rgb(73, 73, 73);
+.road {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  height: 100vh;
+  background: url("/assets/img/background/road.jpg");
+  animation: loop_road 1s linear infinite;
 }
 
-.band{
-    width: 15px;
-    height: 50px;
-    background: rgb(255, 255, 255);
-    margin: 30px;
-    animation: band 0.7s linear infinite;
-}
+/* -- ROAD INFINITE LOOP from top to bottom -- */
 
-@keyframes band {
-    0%{
-        transform: translateY(0px);
+@keyframes loop_road {
+    from {
+      background-position-y: 0;
     }
-    100%{
-        transform: translateY(100px);
+    to {
+      background-position-y: 400%;
     }
-}
+  }
 
+/* .band {
+  width: 15px;
+  height: 50px;
+  background: rgb(255, 255, 255);
+  margin: 30px;
+  animation: band 0.7s linear infinite;
+} */
 
-/* --------voiture ennemi-------- */
+/* @keyframes band {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(100px);
+  }
+} */
 
-.blocvoiture{
-    position: relative;
-    top: -400px;
-    left: 0px;
-    z-index: 1000;
-    animation : voiture 4.8s linear infinite;
+/* -- ENNEMY CAR -- */
 
+.blocvoiture {
+  position: relative;
+  top: -400px;
+  left: 0px;
+  z-index: 1000;
+  animation: voiture 4.8s linear infinite;
 }
 
 @keyframes voiture {
-    0%{
-        transform: translateY(0px);
-    }
-    100%{
-        transform: translateY(1500px);
-        
-    }
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(1500px);
+  }
 }
 
-.formevoiture{
-    position:relative;
-    background: rgba(7, 115, 177, 0.164);
-    width: 120px;
-    height: 220px;
-    border-bottom-left-radius: 45px;
-    border-bottom-right-radius: 45px;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
-    animation: cfast 0.8s linear infinite ;
+.formevoiture {
+  position: relative;
+  background: rgba(7, 115, 177, 164);
+  width: 120px;
+  height: 220px;
+  border-bottom-left-radius: 45px;
+  border-bottom-right-radius: 45px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  animation: cfast 0.8s linear infinite;
 }
 
-.voiture{
-    position:relative;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    
+.voiture {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @keyframes vright {
-    0%, 100%{
-        transform: rotate(0deg);
-    }
-    20%{
-        transform: rotate(-20deg);
-    }
-    60%{
-        transform: rotate(-15deg);
-    }
-    80%{
-        transform: rotate(5deg);
-    }
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(-20deg);
+  }
+  60% {
+    transform: rotate(-15deg);
+  }
+  80% {
+    transform: rotate(5deg);
+  }
 }
 
 @keyframes vleft {
-    0%, 100%{
-        transform: rotate(0deg);
-    }
-    20%{
-        transform: rotate(20deg);
-    }
-    60%{
-        transform: rotate(15deg);
-    }
-    80%{
-        transform: rotate(-5deg);
-    }
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(20deg);
+  }
+  60% {
+    transform: rotate(15deg);
+  }
+  80% {
+    transform: rotate(-5deg);
+  }
 }
 
-.rouetv{
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 150px;
-    height: 70px;
-    top: 120px;
+.rouetv {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 150px;
+  height: 70px;
+  top: 120px;
 }
 
-.rouev1{
-    background: rgb(32, 32, 32);
-    width: 30px;
-    height: 50px;
-    border-radius: 15px;
-    top: 40px;
+.rouev1 {
+  background: rgb(32, 32, 32);
+  width: 30px;
+  height: 50px;
+  border-radius: 15px;
+  top: 40px;
 }
 
-.rouev2{
-    background: rgb(32, 32, 32);
-    width: 30px;
-    height: 50px;
-    border-radius: 15px;
-    top: 40px;
+.rouev2 {
+  background: rgb(32, 32, 32);
+  width: 30px;
+  height: 50px;
+  border-radius: 15px;
+  top: 40px;
 }
 
-.rouev3{
-    position: absolute;
-    background: rgb(32, 32, 32);
-    width: 150px;
-    height: 50px;
-    border-radius: 15px;
-    top: 30px;
+.rouev3 {
+  position: absolute;
+  background: rgb(32, 32, 32);
+  width: 150px;
+  height: 50px;
+  border-radius: 15px;
+  top: 30px;
 }
 
-/* ---------ca rouge---------- */
+/* -- PLAYER CAR -- */
 
-.blocCar{
-    position: relative;
+.blocCar {
+  position: relative;
 
-    top: 150px;
-    left: 0px;
-    animation : cfast 1.2s linear infinite;
+  top: 150px;
+  left: 0px;
+  animation: cfast 1.2s linear infinite;
 }
 
-.formecar{
-    position:relative;
-    background: rgb(177, 7, 7);
-    width: 120px;
-    height: 220px;
-    border-top-left-radius: 45px;
-    border-top-right-radius: 45px;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
+.formecar {
+  position: relative;
+  background: rgb(177, 7, 7);
+  width: 120px;
+  height: 220px;
+  border-top-left-radius: 45px;
+  border-top-right-radius: 45px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
 }
 
-.rouet{
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 150px;
-    height: 70px;
-    top: 30px;
+.rouet {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 150px;
+  height: 70px;
+  top: 30px;
 }
 
-.roue1{
-    background: rgb(32, 32, 32);
-    width: 30px;
-    height: 50px;
-    border-radius: 15px;
-    top: 40px;
+.roue1 {
+  background: rgb(32, 32, 32);
+  width: 30px;
+  height: 50px;
+  border-radius: 15px;
+  top: 40px;
 }
 
-.roue2{
-    background: rgb(32, 32, 32);
-    width: 30px;
-    height: 50px;
-    border-radius: 15px;
-    top: 40px;
+.roue2 {
+  background: rgb(32, 32, 32);
+  width: 30px;
+  height: 50px;
+  border-radius: 15px;
+  top: 40px;
 }
 
-.roue3{
-    position: absolute;
-    background: rgb(32, 32, 32);
-    width: 150px;
-    height: 50px;
-    border-radius: 15px;
-    top: 150px;
+.roue3 {
+  position: absolute;
+  background: rgb(32, 32, 32);
+  width: 150px;
+  height: 50px;
+  border-radius: 15px;
+  top: 150px;
 }
 
-.car{
-    position:relative;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-
+.car {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @keyframes cleft {
-    0%, 100%{
-        transform: rotate(0deg);
-    }
-    20%{
-        transform: rotate(-20deg);
-    }
-    60%{
-        transform: rotate(-15deg);
-    }
-    80%{
-        transform: rotate(5deg);
-    }
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(-20deg);
+  }
+  60% {
+    transform: rotate(-15deg);
+  }
+  80% {
+    transform: rotate(5deg);
+  }
 }
 
 @keyframes cright {
-    0%, 100%{
-        transform: rotate(0deg);
-    }
-    20%{
-        transform: rotate(20deg);
-    }
-    60%{
-        transform: rotate(15deg);
-    }
-    80%{
-        transform: rotate(-5deg);
-    }
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(20deg);
+  }
+  60% {
+    transform: rotate(15deg);
+  }
+  80% {
+    transform: rotate(-5deg);
+  }
 }
 
 @keyframes cfast {
-    0%, 100%{
-        transform: translateY(0px);
-    }
-    30%{
-        transform: translateY(-2px);
-    }
-    80%{
-        transform: translateY(2px);
-    }
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  30% {
+    transform: translateY(-2px);
+  }
+  80% {
+    transform: translateY(2px);
+  }
 }
